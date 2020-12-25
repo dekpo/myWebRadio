@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import {
   TouchableOpacity,
@@ -13,38 +13,40 @@ import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { Audio } from "expo-av";
 
-// const URL_AUDIO_STREAM = "https://radio.dekpo.com/stream.mp3";
+const URL_AUDIO_STREAM = "https://radio.dekpo.com/stream.mp3";
 
-const URL_AUDIO_STREAM = "https://commealaradio.out.airtime.pro/commealaradio_a";
+// const URL_AUDIO_STREAM = "https://commealaradio.out.airtime.pro/commealaradio_a";
 
+// mon image en background dans ImageBackground
 const backImage = require("./assets/img/45-tours.jpg");
-
-const backColors = ["orange", "red", "green", "blue"];
-
+// tableau de couleurs d'arrière plan
+const backColors = ["orange", "red", "green", "blue","purple", "brown"];
+// tirage aléatoire d'une couleur
 const randomColor = backColors[Math.round(Math.random() * (backColors.length - 1))];
-
+// lien site web
 const homeLink = () => {
-    Linking.openURL('https://commealaradio.com');
+    Linking.openURL('https://radio.dekpo.com');
   }
-
+// lien téléphone
 const callLink = () => {
-    Linking.openURL('tel:+33450238500');
+    Linking.openURL('tel:+33659913379');
   }
-
+// lien compte insta
 const instaLink = () => {
-    Linking.openURL('https://www.instagram.com/comme.a.la.radio');
+    Linking.openURL('https://www.instagram.com/dekpowyna/');
   }
-
+// lien mail
 const mailLink = () => {
-    Linking.openURL('mailto:contact@commealaradio.com');
+    Linking.openURL('mailto:dekpo@me.com');
   }
 
 
-
+// le composant principal
 export default function App() {
-  
+  // l'objet sound est défini en tant que state
   const [sound, setSound] = React.useState(null);
 
+  // la fonction pour jouer et arrêter le son suivant la valeur de l'objet sound
   async function playSound() {
       if (sound === null) {
         setSound(false);
@@ -62,11 +64,12 @@ export default function App() {
           await sound.unloadAsync();   
       }
   }
-
+// on charge une font perso
   let [fontsLoaded] = useFonts({
     Chrismas_bell: require("./assets/font/Christmas-Bell-Personal-Use.otf"),
   });
 
+// on attend que le fichier de font soit bien chargé
   if (!fontsLoaded) {
     return <AppLoading />;
   }
@@ -79,7 +82,7 @@ export default function App() {
       <TouchableOpacity onPress={homeLink}>
         <Ionicons name="home" size={30} color="#FFFFFF" />
       </TouchableOpacity>
-        <Text style={styles.title}> My WebRadio </Text>
+        <Text style={styles.title}> Dekpo Radio </Text>
       <TouchableOpacity onPress={homeLink}>
         <Ionicons name="person" size={30} color="#FFFFFF" />
       </TouchableOpacity>

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "myRadioApp",
-    "slug": "myRadioApp",
+    "name": "My Web Radio App",
+    "slug": "mywebradioapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Just a simple WebRadio App from my personal selection...",
+    "githubUrl": "https://github.com/dekpo/myWebRadio"
   }
 }
